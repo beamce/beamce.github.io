@@ -1,13 +1,24 @@
 function createPersonalInfoScreen() {
+    let nameContainer = document.createElement("div");
+    nameContainer.setAttribute("id", "name-container");
     let nameLabel = document.createElement("p").appendChild(document.createTextNode("Name: "));
     let nameInput = document.createElement("input");
+    nameContainer.appendChild(nameLabel);
+    nameContainer.appendChild(nameInput);
     nameInput.setAttribute("id", "name");
+    let ageContainer = document.createElement("div");
     let ageLabel = document.createElement("p").appendChild(document.createTextNode("Age: "));
     let ageInput = document.createElement("input");
-    ageInput.setAttribute("id", "age");
+    ageContainer.setAttribute("id", "age-container");
+    ageInput.setAttribute("id", "age-input");
     ageInput.type = "number";
     ageInput.min = "1";
-    ageInput.max = "100";    
+    ageInput.max = "100";
+    ageInput.setAttribute("size", 2);
+    ageContainer.appendChild(ageLabel);
+    ageContainer.appendChild(ageInput); 
+    let genderContainer = document.createElement("div");
+    genderContainer.setAttribute("id", "gender-container");
     let maleRadioLabel = document.createElement("p").appendChild(document.createTextNode("Male "));
     let maleRadio = document.createElement("input");
     maleRadio.setAttribute("id", "male");
@@ -19,15 +30,14 @@ function createPersonalInfoScreen() {
     femaleRadio.setAttribute("id", "female");
     femaleRadio.setAttribute("type", "radio");
     femaleRadio.setAttribute("name", "gender");
+    genderContainer.appendChild(maleRadioLabel);
+    genderContainer.appendChild(maleRadio);
+    genderContainer.appendChild(femaleRadioLabel);
+    genderContainer.appendChild(femaleRadio);
 
-    formContainer.appendChild(nameLabel);
-    formContainer.appendChild(nameInput);
-    formContainer.appendChild(ageLabel);
-    formContainer.appendChild(ageInput);
-    formContainer.appendChild(maleRadioLabel);
-    formContainer.appendChild(maleRadio);
-    formContainer.appendChild(femaleRadioLabel);
-    formContainer.appendChild(femaleRadio);
+    formContainer.appendChild(nameContainer);
+    formContainer.appendChild(ageContainer);
+    formContainer.appendChild(genderContainer);
 
     navigationOn = 1;
     navigationController();

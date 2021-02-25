@@ -1,8 +1,64 @@
+html {
+    font-family: "Gill Sans MT", "Gill Sans", "Segoe UI", "sans-serif";
+    font-size: 1.2em;
+}
+
 #title {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: rgba(180, 180, 80, 0.69);
+}
+
+button {
+    font-size: 1.1em;
+}
+
+input {
+    font-size: 1.1em;
+    border-radius: 4px;
+}
+
+input[type="radio"] {
+    margin: 0 40px 0 15px;
+}
+
+input[type="checkbox"] {
+    transform: scale(1.5);
+}
+
+#start-btn {
+    width: 250px;
+    height: 50px;
+    margin: 5px 10px;
+    padding: 2px 10px;
+    border-radius: 50px;
+    background-color: #b4682288;
+}
+
+.nav-btn, .person-btn {
+    overflow: auto;
+    width: auto;
+    height: auto;
+    margin: 5px 10px;
+    border-radius: 5px;
+    border-style: ridge;
+    background-color: #b4682288;
+}
+
+.person-btn {
+    padding: 12px 30px;
+}
+
+#back-btn {
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+
+#next-btn {
+    border-top-right-radius: 30px;
+    border-bottom-right-radius: 30px;
 }
 
 #form-container {
@@ -10,18 +66,76 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: blueviolet;
+    background-color: #f1eee0;
+    border-top: 2px grey;
+    border-bottom: 2px grey;
+    padding: 10px;
+}
+
+#name-container, #age-container, #gender-container {
+    display: flex;
+    margin: 15px;
+}
+
+#gender-input {
+    display: flex;
+    align-items: center;
+}
+
+#name-container :first-child, #age-container :first-child {
+    margin-left: 50px;
+}
+
+#children-container {
+    margin: 10px;
+}
+
+#married-container {
+    margin: 10px;
+}
+
+#children-container :first-child, #married-container :first-child {
+    margin-left: 50px;
+}
+
+#child-age-text {
+    margin: 10px;
+}
+
+.child-age-container {
+    display: flex;
+    margin: 10px;
+}
+
+.child-age-container :first-child {
+    margin-left: 50px;
+}
+
+#radio-two-container, #radio-three-container, #radio-four-container {
+    display: flex;
+    margin: 10px;
+}
+
+#radio-two-container :first-child, #radio-three-container :first-child, #radio-four-container :first-child {
+    margin-left: 50px;
+}
+
+.film-container {
+    margin: 10px;
 }
 
 #navigation-container {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
-    background-color: red;
+    background-color: #f1eee0;
+    padding-bottom: 30px;
 }
 
 #end-container {
     display: flex;
+    overflow: auto;
     flex-direction: row;
 }
 
@@ -29,7 +143,7 @@
     display: flex;
     flex-direction: column;
     align-items: left;
-    background-color: greenyellow;
+    background-color: rgba(97, 51, 21, 0.5);
     padding: 10px;
     margin: 10px;
     width: 25%;
@@ -40,4 +154,5 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: #d1b74281;
 }

@@ -1,87 +1,120 @@
 //Creates the screen for favourite film genre
 function filmScreen() {
-    console.log("This is the film Screen");
+    let filmText = document.createElement("p");
+    filmText.innerHTML = "Please choose your favourite genre of film from the list below:";
+    formContainer.appendChild(filmText);
+
+    let animationContainer = document.createElement("div");
+    animationContainer.setAttribute("class", "film-container");
     let animationLabel = document.createElement("p").appendChild(document.createTextNode("Animation"));
     let animationRadio = document.createElement("input");
     animationRadio.setAttribute("type", "radio");
     animationRadio.setAttribute("name", "film-genre");
     animationRadio.setAttribute("value", "animation");
     animationRadio.checked = true;
+    animationContainer.appendChild(animationLabel);
+    animationContainer.appendChild(animationRadio);
 
+    let comedyContainer = document.createElement("div");
+    comedyContainer.setAttribute("class", "film-container");
     let comedyLabel = document.createElement("p").appendChild(document.createTextNode("Comedy"));
     let comedyRadio = document.createElement("input");
     comedyRadio.setAttribute("type", "radio");
     comedyRadio.setAttribute("name", "film-genre");
     comedyRadio.setAttribute("value", "comedy");
+    comedyContainer.appendChild(comedyLabel);
+    comedyContainer.appendChild(comedyRadio);
 
+    let dramaContainer = document.createElement("div");
+    dramaContainer.setAttribute("class", "film-container");
     let dramaLabel = document.createElement("p").appendChild(document.createTextNode("Drama"));
     let dramaRadio = document.createElement("input");
     dramaRadio.setAttribute("type", "radio");
     dramaRadio.setAttribute("name", "film-genre");
     dramaRadio.setAttribute("value", "drama");
+    dramaContainer.appendChild(dramaLabel);
+    dramaContainer.appendChild(dramaRadio);
 
+    let horrorContainer = document.createElement("div");
+    horrorContainer.setAttribute("class", "film-container");
     let horrorLabel = document.createElement("p").appendChild(document.createTextNode("Horror"));
     let horrorRadio = document.createElement("input");
     horrorRadio.setAttribute("type", "radio");
     horrorRadio.setAttribute("name", "film-genre");
     horrorRadio.setAttribute("value", "horror");
+    horrorContainer.appendChild(horrorLabel);
+    horrorContainer.appendChild(horrorRadio);
 
+    let musicalContainer = document.createElement("div");
+    musicalContainer.setAttribute("class", "film-container");
     let musicalLabel = document.createElement("p").appendChild(document.createTextNode("Musical"));
     let musicalRadio = document.createElement("input");
     musicalRadio.setAttribute("type", "radio");
     musicalRadio.setAttribute("name", "film-genre");
     musicalRadio.setAttribute("value", "musical");
+    musicalContainer.appendChild(musicalLabel);
+    musicalContainer.appendChild(musicalRadio);
 
+    let romanceContainer = document.createElement("div");
+    romanceContainer.setAttribute("class", "film-container");
     let romanceLabel = document.createElement("p").appendChild(document.createTextNode("Romance"));
     let romanceRadio = document.createElement("input");
     romanceRadio.setAttribute("type", "radio");
     romanceRadio.setAttribute("name", "film-genre");
     romanceRadio.setAttribute("value", "romance");
+    romanceContainer.appendChild(romanceLabel);
+    romanceContainer.appendChild(romanceRadio);
 
+    let sciFiContainer = document.createElement("div");
+    sciFiContainer.setAttribute("class", "film-container");
     let sciFiLabel = document.createElement("p").appendChild(document.createTextNode("Science Fiction"));
     let sciFiRadio = document.createElement("input");
     sciFiRadio.setAttribute("type", "radio");
     sciFiRadio.setAttribute("name", "film-genre");
     sciFiRadio.setAttribute("value", "science fiction");
+    sciFiContainer.appendChild(sciFiLabel);
+    sciFiContainer.appendChild(sciFiRadio);
 
+    let thrillerContainer = document.createElement("div");
+    thrillerContainer.setAttribute("class", "film-container");
     let thrillerLabel = document.createElement("p").appendChild(document.createTextNode("Thriller"));
     let thrillerRadio = document.createElement("input");
     thrillerRadio.setAttribute("type", "radio");
     thrillerRadio.setAttribute("name", "film-genre");
     thrillerRadio.setAttribute("value", "thriller");
+    thrillerContainer.appendChild(thrillerLabel);
+    thrillerContainer.appendChild(thrillerRadio);
 
+    let warContainer = document.createElement("div");
+    warContainer.setAttribute("class", "film-container");
     let warLabel = document.createElement("p").appendChild(document.createTextNode("War"));
     let warRadio = document.createElement("input");
     warRadio.setAttribute("type", "radio");
     warRadio.setAttribute("name", "film-genre");
     warRadio.setAttribute("value", "war");
+    warContainer.appendChild(warLabel);
+    warContainer.appendChild(warRadio);
 
+    let westernContainer = document.createElement("div");
+    westernContainer.setAttribute("class","film-container");
     let westernLabel = document.createElement("p").appendChild(document.createTextNode("Western"));
     let westernRadio = document.createElement("input");
     westernRadio.setAttribute("type", "radio");
     westernRadio.setAttribute("name", "film-genre");
     westernRadio.setAttribute("value", "western");
+    westernContainer.appendChild(westernLabel);
+    westernContainer.appendChild(westernRadio);
 
-    formContainer.appendChild(animationLabel);
-    formContainer.appendChild(animationRadio);
-    formContainer.appendChild(comedyLabel);
-    formContainer.appendChild(comedyRadio);
-    formContainer.appendChild(dramaLabel);
-    formContainer.appendChild(dramaRadio);
-    formContainer.appendChild(horrorLabel);
-    formContainer.appendChild(horrorRadio);
-    formContainer.appendChild(musicalLabel);
-    formContainer.appendChild(musicalRadio);
-    formContainer.appendChild(romanceLabel);
-    formContainer.appendChild(romanceRadio);
-    formContainer.appendChild(sciFiLabel);
-    formContainer.appendChild(sciFiRadio);
-    formContainer.appendChild(thrillerLabel);
-    formContainer.appendChild(thrillerRadio);
-    formContainer.appendChild(warLabel);
-    formContainer.appendChild(warRadio);
-    formContainer.appendChild(westernLabel);
-    formContainer.appendChild(westernRadio);
+    formContainer.appendChild(animationContainer);
+    formContainer.appendChild(comedyContainer);
+    formContainer.appendChild(dramaContainer);
+    formContainer.appendChild(horrorContainer);
+    formContainer.appendChild(musicalContainer);
+    formContainer.appendChild(romanceContainer);
+    formContainer.appendChild(sciFiContainer);
+    formContainer.appendChild(thrillerContainer);
+    formContainer.appendChild(warContainer);
+    formContainer.appendChild(westernContainer);
 }
 
 //New film object 
@@ -145,7 +178,7 @@ let films = [
     new Film("Hans Cristian Andersen", "musical", "tt0044685")
 ];
 
-function favouriteFilm(genre, films) {
+function favouriteFilm(genre) {
     let possibleFilms = [];
     for (i = 0; i < films.length; i++) {
         if (films[i].genre == genre) {

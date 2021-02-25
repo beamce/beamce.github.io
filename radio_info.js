@@ -1,29 +1,41 @@
 function radioScreen() {
-    console.log("This is the radio screen");
+    let radioText = document.createElement("p");
+    radioText.innerHTML = "Please check all the radio stations you listen to on a regular basis:";
+    formContainer.append(radioText);
+
+    let radioTwoContainer = document.createElement("div");
+    radioTwoContainer.setAttribute("id", "radio-two-container");
     let radioTwoLabel = document.createElement("p").appendChild(document.createTextNode("BBC Radio 2"));
     let radioTwoCheck = document.createElement("input");
     radioTwoCheck.type = "checkbox";
     radioTwoCheck.setAttribute("name", "radio-check");
     radioTwoCheck.setAttribute("value", "Light Programme");
+    radioTwoContainer.appendChild(radioTwoLabel);
+    radioTwoContainer.appendChild(radioTwoCheck);
 
+    let radioThreeContainer = document.createElement("div");
+    radioThreeContainer.setAttribute("id", "radio-three-container");
     let radioThreeLabel = document.createElement("p").appendChild(document.createTextNode("BBC Radio 3"));
     let radioThreeCheck = document.createElement("input");
     radioThreeCheck.type = "checkbox";
     radioThreeCheck.setAttribute("name", "radio-check");
     radioThreeCheck.setAttribute("value", "Third Programme");
+    radioThreeContainer.appendChild(radioThreeLabel);
+    radioThreeContainer.appendChild(radioThreeCheck);
 
+    let radioFourContainer = document.createElement("div");
+    radioFourContainer.setAttribute("id", "radio-four-container");
     let radioFourLabel = document.createElement("p").appendChild(document.createTextNode("BBC Radio 4"));
     let radioFourCheck = document.createElement("input");
     radioFourCheck.type = "checkbox";
     radioFourCheck.setAttribute("name", "radio-check");
     radioFourCheck.setAttribute("value", "Home Service");
+    radioFourContainer.appendChild(radioFourLabel);
+    radioFourContainer.appendChild(radioFourCheck);
 
-    formContainer.appendChild(radioTwoLabel);
-    formContainer.appendChild(radioTwoCheck);
-    formContainer.appendChild(radioThreeLabel);
-    formContainer.appendChild(radioThreeCheck);
-    formContainer.appendChild(radioFourLabel);
-    formContainer.appendChild(radioFourCheck);
+    formContainer.appendChild(radioTwoContainer);
+    formContainer.appendChild(radioThreeContainer);
+    formContainer.appendChild(radioFourContainer);
 };
 
 class RadioShow {
@@ -77,8 +89,8 @@ let radioShows = [
     new RadioShow("Jamboree", "childrens", ["Radio Luxembourg"])
 ];
 
-function assignRadioStation(age, stations) {
-    if (stations == null) {
+function assignRadioStation(age) {
+    if (person.radioStations.length == 0) {
         let roll = 0;
         if (age < 11) {
             person.radioStations = ["Home Service"];
@@ -116,12 +128,12 @@ function assignRadioStation(age, stations) {
 /* Takes a list of the stations that a person listens too and 
 all of the shows in the system, and selects one at random 
 based on their stations */
-function radioShow(stations, shows) {
+function radioShow() {
     let possibleShows = [];
-    for (i = 0; i < stations.length; i++) {
-        for (x = 0; x < shows.length; x++) {
-            if (shows[x].station.includes(stations[i])) {
-                possibleShows.push(shows[x]);
+    for (i = 0; i < person.radioStations.length; i++) {
+        for (x = 0; x < radioShows.length; x++) {
+            if (radioShows[x].station.includes(person.radioStations[i])) {
+                possibleShows.push(radioShows[x]);
             }
         }
     }
@@ -131,7 +143,7 @@ function radioShow(stations, shows) {
 function getRadioInfo(radioStation, radioShow) {
     radioInfoStr = "";
 
-    radioInfoStr += "<p>At night you listen to the" + radioStation +" on the radio. Your favourite radio show on this station is " + radioShow + ". ";
+    radioInfoStr += "<p>At night you listen to the " + radioStation +" on the radio. Your favourite radio show on this station is " + radioShow + ". ";
     if (radioStation == "Light Programme") {
         radioInfoStr += "This is by far the most popular radio station of the 1950s, with around 2 in every 3 people tuning in regularly.</p>";
     } else if (radioStation == "Third Programme") {

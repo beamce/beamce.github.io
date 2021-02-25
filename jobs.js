@@ -27,7 +27,8 @@ let jobs = [
     new Job("Secretary", "Something", "Somewhere", ["Female"], ["Secondary", "Secondary Modern"], 2300, 1),
     new Job("Typist", "Somthing", "Somewhere", ["Female"], ["Secondary Modern"], 4500, 1),
     new Job("Hairdresser", "Fashion", "Bettys", ["Female"], ["Secondary Modern"], 2000, 1),
-    new Job("Cleaner", "Sanitation", "Sunderland Secondary School", ["Female"], ["Secondary"], 2300, 2)
+    new Job("Cleaner", "Sanitation", "Sunderland Secondary School", ["Female"], ["Secondary"], 2300, 2),
+    new Job("Housewive", "Family", "Self", ["Secondary", "Secondary Modern", "Grammar"], 0, 0)
 ];
 
 function working(age, gender) {
@@ -62,15 +63,16 @@ function jobSelector(myGender, myEducation) {
             possibleJobs.push(educatedGenderedJobsList[i]);
         }
     }
-    person.job = possibleJobs[Math.floor(Math.random() * possibleJobs.length)];
+    return possibleJobs[Math.floor(Math.random() * possibleJobs.length)];
 };
 
 function getJobInfo(working, married, job, company, income, spousesJob, spousesIncome) {
     let jobInfoStr = "";
 
     if (working) {
-        jobInfoStr += "<p>You currently work as a " + job + " for " + company + ". Your current wage is " + income + " per month.</p>";
+        jobInfoStr += "<p>You currently work as a " + job + " for " + company + ". Your current wage is " + pennyConverter(income) + " per month.</p>";
     } else {
         jobInfoStr += "<p>You are currently not in work.</p>";
     }
+    return jobInfoStr;
 };

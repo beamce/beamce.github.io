@@ -7,8 +7,8 @@ function readsDailyNewspaper(age) {
             person.readsDailyNewspaper = true;
         }
     } else if (age > 20) {
-        roll = Math.floor(Math.random() * 5);
-        if (roll < 4) {
+        roll = Math.floor(Math.random() * 10);
+        if (roll < 9) {
             person.readsDailyNewspaper = true;
         }
     }
@@ -53,4 +53,5 @@ function getNewspaperInfo(readsNewspaper, newspaper) {
     } else {
         newspaperInfo += "<p>You don't read a daily newspaper.</p>";
     }
+    return newspaperInfo;
 };
