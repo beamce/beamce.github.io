@@ -29,5 +29,6 @@ let person =  {
         movedHouseYear: null,
         inventory: [],
         familySize: 1,
+        hobbies: [],
         classStatus: Math.floor(Math.random() * 10) < 9 ? "Working Class":"Middle Class",
     };

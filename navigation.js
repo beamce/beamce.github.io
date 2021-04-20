@@ -29,6 +29,9 @@ changeRadioShowButton.setAttribute("class", "person-btn");
 let changeFilmButton = document.createElement("button");
 changeFilmButton.textContent = "Change Film";
 changeFilmButton.setAttribute("class", "person-btn");
+let changeHobbiesButton = document.createElement("button");
+changeHobbiesButton.textContent = "Change Hobbies";
+changeHobbiesButton.setAttribute("class", "person-btn");
 let deletePersonButton = document.createElement("button");
 deletePersonButton.textContent = "Delete Person";
 deletePersonButton.setAttribute("class", "person-btn");
@@ -60,6 +63,7 @@ function endScreenNavigation() {
     navigationContainer.appendChild(changeNewspaperButton);
     navigationContainer.appendChild(changeRadioShowButton);
     navigationContainer.appendChild(changeFilmButton);
+    navigationContainer.appendChild(changeHobbiesButton);
     navigationContainer.appendChild(deletePersonButton);
 
 }
@@ -101,7 +105,9 @@ function endScreen() {
                             getJobInfo(person.inWork, person.married, person.job.jobName, person.job.company, person.job.income, person.spousesJob.jobName, person.spousesJob.income) +
                             getNewspaperInfo(person.readsDailyNewspaper, person.dailyNewspaper) +
                             getRadioInfo(person.radioStations, person.favouriteRadioShow.showName) +
-                            getCinemaInfo(person.favouriteFilm.filmName, person.filmGenre);
+                            getCinemaInfo(person.favouriteFilm.filmName, person.filmGenre) +
+                            "<h2>Your Weekly Routine</h2>" +
+                            getHobbiesInfo();
     formContainer.appendChild(endScreenContainer);
     endScreenContainer.appendChild(quickView);
     endScreenContainer.appendChild(mainView);
@@ -162,6 +168,7 @@ function updatePerson() {
             working();
             person.job = jobSelector(person.gender, person.secondarySchoolType);
             person.money = person.job.income;
+            myHobbies(person.gender, person.age);
             break;
 
         case 2:
@@ -242,6 +249,13 @@ function savePerson() {
     localStorage.setItem("movedHouseYear", person.movedHouseYear);
     localStorage.setItem("inventory", person.inventory.join());
     localStorage.setItem("familySize", person.familySize);
+    localStorage.setItem("mondayHobby", person.hobbies[0].hobby);
+    localStorage.setItem("tuesdayHobby", person.hobbies[1].hobby);
+    localStorage.setItem("wednesdayHobby", person.hobbies[2].hobby);
+    localStorage.setItem("thursdayHobby", person.hobbies[3].hobby);
+    localStorage.setItem("fridayHobby", person.hobbies[4].hobby);
+    localStorage.setItem("saturdayHobby", person.hobbies[5].hobby);
+    localStorage.setItem("sundayHobby", person.hobbies[6].hobby);
     localStorage.setItem("classStatus", person.classStatus);
 };
 
@@ -277,6 +291,15 @@ function retrievePerson() {
     person.movedHouseYear = localStorage.getItem("movedHouseYear");
     person.inventory = localStorage.getItem("inventory").split(",");
     person.familySize = localStorage.getItem("familySize");
+
+    for (i = 0; i < 7; i++) {
+        if (localStorage.getItem(days[i].toLowerCase() + "Hobby") != "undefined") {
+            person.hobbies.push(hobbies.filter(obj => obj.hobby == localStorage.getItem(days[i].toLowerCase() + "Hobby"))[0]);
+        } else {
+            person.hobbies.push("");
+        }
+    }
+
     person.classStatus = localStorage.getItem("classStatus");
 };
 
@@ -347,6 +370,19 @@ function changeMyFilm() {
     changeScreen();
 }
 
+function changeMyHobbies() {
+    person.hobbies = [];
+    myHobbies(person.gender, person.age);
+    localStorage.setItem("mondayHobby", person.hobbies[0].hobby);
+    localStorage.setItem("tuesdayHobby", person.hobbies[1].hobby);
+    localStorage.setItem("wednesdayHobby", person.hobbies[2].hobby);
+    localStorage.setItem("thursdayHobby", person.hobbies[3].hobby);
+    localStorage.setItem("fridayHobby", person.hobbies[4].hobby);
+    localStorage.setItem("saturdayHobby", person.hobbies[5].hobby);
+    localStorage.setItem("sundayHobby", person.hobbies[6].hobby);
+    changeScreen();
+}
+
 function removeQuickView() {
     let quickViewContainer = document.getElementById("quick-view");
 
@@ -369,6 +405,7 @@ personBiographyButton.addEventListener("click", personBiography);
 changeNewspaperButton.addEventListener("click", changeMyNewspaper);
 changeRadioShowButton.addEventListener("click", changeMyRadioShow);
 changeFilmButton.addEventListener("click", changeMyFilm);
+changeHobbiesButton.addEventListener("click", changeMyHobbies);
 deletePersonButton.addEventListener("click", deletePerson);
 
 //Below here is site specific actions mimicked for online use!
