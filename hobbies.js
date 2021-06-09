@@ -1,29 +1,21 @@
 class Hobby {
     constructor(hobby, gender, activityType, club, day, time, familyActivity = false, clubAttached = "", myTime = "") {
         this.hobby = hobby;
-        //Gender taken as a list
-        this.gender = gender;
-        //child activity taken as a list, A for adult, C for child, F for family activity
-        this.activityType = activityType;
-        //club is true false, would this be a club activity
-        this.club = club;
-        //day taken as string of numbers, 1=Monday, 2=Tuesday...
-        this.day = day;
-        //time taken as morning, afternoon or evenings in a list
-        this.time = time;
-        //family activity always set to false, to be activated on chance if the person has that hobby and it can be a family type
-        this.familyActivity = familyActivity;
-        //club attached is an empty string, unless the person is a part of a club selected at random
-        this.clubAttached = clubAttached;
-        this.myTime = myTime;
+        this.gender = gender;  //Gender taken as a list
+        this.activityType = activityType;  //child activity taken as a list, A for adult, C for child, F for family activity
+        this.club = club;  //club is true false, would this be a club activity
+        this.day = day;  //day taken as string of numbers, 1=Monday, 2=Tuesday...
+        this.time = time;  //time taken as morning, afternoon or evenings in a list
+        this.familyActivity = familyActivity;  //family activity always set to false, to be activated on chance if the person has that hobby and it can be a family type
+        this.clubAttached = clubAttached;  //club attached is an empty string, unless the person is a part of a club selected at random
+        this.myTime = myTime;  //club attached is an empty string, unless the person is a part of a club selected at random
     }
 };
 
 class Clubs {
     constructor(hobby, clubName) {
         this.hobby = hobby;
-        //list of club names associated with this hobby
-        this.clubName = clubName;
+        this.clubName = clubName; //list of club names associated with this hobby
     }
 }
 
@@ -112,7 +104,6 @@ function myHobbies(gender, age) {
         } else {
             person.hobbies.push("");
         }
-        
     }
 }
 

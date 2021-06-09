@@ -70,7 +70,7 @@ function getJobInfo(working, married, job, company, income, spousesJob, spousesI
     let jobInfoStr = "";
 
     if (working) {
-        jobInfoStr += "<p>You currently work as a " + job + " for " + company + ". Your current wage is " + pennyConverter(income) + " per month.</p>";
+        jobInfoStr += "<p>You currently work as a " + job + " for " + company + ". Your current wage is " + pennyConverter(income) + " per week.</p>";
     } else {
         jobInfoStr += "<p>You are currently not in work.</p>";
     }

@@ -30,5 +30,18 @@ let person =  {
         inventory: [],
         familySize: 1,
         hobbies: [],
+        headwear: "None",
+        neckwear: "None",
+        top: "None",
+        knitwear: "None",
+        jacket: "None",
+        coat: "None",
+        trousers: "None",
+        accessories: "None",
+        footwear: "None",
+        blouse: "None",
+        dress: "None",
+        achievementsCompleted: ["The Golden Age", "The New Look"],
         classStatus: Math.floor(Math.random() * 10) < 9 ? "Working Class":"Middle Class",
     };
+

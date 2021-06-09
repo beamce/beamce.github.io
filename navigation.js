@@ -100,6 +100,7 @@ function endScreen() {
     infoLabel.innerHTML = "Biography";
     let personalInfo = document.createElement("div");
     personalInfo.innerHTML = getPersonalInfo(person.fullName, person.birthYear, person.classStatus) + 
+                            getClothingInfo() +
                             getEducationInfo(person.age, person.birthYear, person.inPrimarySchool, person.satElevenPlus, person.passedElevenPlus, person.primarySchoolStart, person.secondarySchoolStart, person.secondarySchoolType) +
                             getFamilyInfo(person.familySize, person.married, person.childrenNumber, person.movedHouseYear, person.birthYear, person.childrenBirthYears) +
                             getJobInfo(person.inWork, person.married, person.job.jobName, person.job.company, person.job.income, person.spousesJob.jobName, person.spousesJob.income) +
@@ -213,6 +214,9 @@ function updatePerson() {
                 }
             }
             favouriteFilm(person.filmGenre);
+            currentSeason();
+            clothingSubculture();
+            clothes(person.gender, person.age, season, subculture, person.secondarySchoolType, person.inWork);
             savePerson();
             endScreenNavigation();
     }
@@ -257,6 +261,17 @@ function savePerson() {
     localStorage.setItem("saturdayHobby", person.hobbies[5].hobby);
     localStorage.setItem("sundayHobby", person.hobbies[6].hobby);
     localStorage.setItem("classStatus", person.classStatus);
+    localStorage.setItem("headwear", person.headwear);
+    localStorage.setItem("neckwear", person.neckwear);
+    localStorage.setItem("top", person.top);
+    localStorage.setItem("knitwear", person.knitwear);
+    localStorage.setItem("jacket", person.jacket);
+    localStorage.setItem("coat", person.coat);
+    localStorage.setItem("trousers", person.trousers);
+    localStorage.setItem("accessories", person.accessories);
+    localStorage.setItem("footwear", person.footwear);
+    localStorage.setItem("blouse", person.blouse);
+    localStorage.setItem("dress", person.dress);
 };
 
 function retrievePerson() {
@@ -291,6 +306,17 @@ function retrievePerson() {
     person.movedHouseYear = localStorage.getItem("movedHouseYear");
     person.inventory = localStorage.getItem("inventory").split(",");
     person.familySize = localStorage.getItem("familySize");
+    person.headwear = localStorage.getItem("headwear");
+    person.neckwear = localStorage.getItem("neckwear");
+    person.top = localStorage.getItem("top");
+    person.knitwear = localStorage.getItem("knitwear");
+    person.jacket = localStorage.getItem("jacket");
+    person.coat = localStorage.getItem("coat");
+    person.trousers = localStorage.getItem("trousers");
+    person.accessories = localStorage.getItem("accessories");
+    person.footwear = localStorage.getItem("footwear");
+    person.blouse = localStorage.getItem("blouse");
+    person.dress = localStorage.getItem("dress");
 
     for (i = 0; i < 7; i++) {
         if (localStorage.getItem(days[i].toLowerCase() + "Hobby") != "undefined") {
@@ -299,7 +325,6 @@ function retrievePerson() {
             person.hobbies.push("");
         }
     }
-
     person.classStatus = localStorage.getItem("classStatus");
 };
 
